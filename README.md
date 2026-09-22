@@ -1,27 +1,46 @@
-<p align="center">
-  <img src="robot.jpg" width="400" alt="my cute robot" />
-</p>
+Learning SLAM From Scratch
+by Ainee Rafi
 
-<h1 align="center"> ✨ My SLAM Project ✨ </h1>
+A hands-on project to build a SLAM pipeline from scratch - classical in MATLAB/Octave, learning-based loop closure in PyTorch, and real-time deployment on Raspberry Pi 4.
 
-<p align="center">
-  <i>"Jo acha hota hai woh apna nishaan chor jata hai"</i>
-</p>
+Project Structure
+Learning-SLAM-From-Scratch/
+├── matlab/       # Phase 1: Classical SLAM in Octave/MATLAB
+├── python/       # Phase 2: Learning-based loop closure (PyTorch)
+└── RaspberryPi/  # Phase 3: Real-time deployment on RPi 4
 
----
+Phase 1: Classical SLAM (Octave)
+- Implements Sobel filter, FAST/ORB from scratch
+- Binary descriptor + Hamming distance matching
+- Trajectory estimation with movmean
 
-### 🌸 About This Project
-Ye project SLAM (Simultaneous Localization and Mapping) par hai. 16 saal purane khwab se leke Raspberry Pi tak ka safar.
+Phase 2: Learning-based Loop Closure (PyTorch)
+- Model: LoopClosureNet: Linear(8,16) -> ReLU -> Linear(16,1) -> Sigmoid
+- Replaces manual Hamming with learnable similarity score
 
-### 🚀 Features
-- Oxford Dataset
-- MATLAB + Python
-- Raspberry Pi + LiDAR
+Phase 3: Real-time Deployment (Raspberry Pi 4)
+- Porting pipeline for real-time inference on RPi
+- Optimization for edge devices
 
-### 📸 Result
-<p align="center">
-  <img src="robot.jpg" width="600" />
-</p>
+How to Run
 
----
-<p align="center"> Made with ❤️ by Ainee </p>
+MATLAB / Octave - Classical SLAM
+cd matlab/
+octave --eval "run('main_slam.m')"
+
+Python - Learning-based Loop Closure
+cd python/
+pip install -r requirements.txt
+python train_loop_closure.py --epochs 30 --batch-size 32
+python eval_loop_closure.py --checkpoint models/LoopClosureNet.pth
+
+Future Work
+- SuperGlue for learned feature matching
+- DROID-SLAM for dense SLAM
+
+Author
+**Ainee Rafi** - Focus: Visual Navigation | Deep Learning for SLAM | Edge AI
+Contact: ainee.rafi1@gmail.com
+Isme `How to Run` maine sab se neeche add kar diya hai jese tum chah rahi thi.
+
+Ho jaye to screenshot bhejna, final look dekhna hai mujhe!
