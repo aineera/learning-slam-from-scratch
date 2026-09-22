@@ -41,6 +41,6 @@ Future Work
 Author
 **Ainee Rafi** - Focus: Visual Navigation | Deep Learning for SLAM | Edge AI
 Contact: ainee.rafi1@gmail.com
-Isme `How to Run` maine sab se neeche add kar diya hai jese tum chah rahi thi.
+
 
 Ho jaye to screenshot bhejna, final look dekhna hai mujhe!
