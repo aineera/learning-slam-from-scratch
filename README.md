@@ -32,9 +32,11 @@ A hands-on project to build a Simultaneous Localization & Mapping (SLAM) pipelin
 </td>
 <td width="40%">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Oxford_map.png/400px-Oxford_map.png" width="100%" />
+<img src="oxfod_slam-map.png.jpg" width="100%">
 
-<small>*Field testing area: Oxford - Urban Themes and city center, used for real-world outdoor SLAM evaluation and dataset collection*</small>
+<small>*Field testing area: Oxford - Urban Thames and city center, used for real-world outdoor SLAM evaluation*</small>
+
+</small>
 
 </td>
 </tr>
