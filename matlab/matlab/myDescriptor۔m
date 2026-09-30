@@ -1,0 +1,21 @@
+function desc = myDescriptor(img, corners)
+    % Har corner pe 31x31 patch se 256 tests
+    num = size(corners,1);
+    desc = zeros(num, 32, 'uint8'); % 32 byte = 256 bits
+    
+    % Pehle se random 256 joriyan bana lo (BRIEF pattern)
+    rng(0); pairs = randi([-15 15], 256, 4); % [x1 y1 x2 y2]
+    
+    for k = 1:num
+        x = corners(k,1); y = corners(k,2);
+        if x<16 || y<16 || x>size(img,2)-16 || y>size(img,1)-16, continue; end
+        bits = zeros(1,256);
+        for i = 1:256
+            p1 = img(y+pairs(i,2), x+pairs(i,1));
+            p2 = img(y+pairs(i,4), x+pairs(i,3));
+            bits(i) = p1 < p2; % tumhara wala A<B ? 1:0
+        end
+        % 256 bits ko 32 bytes mein pack karo
+        desc(k,:) = uint8(bin2dec(num2str(reshape(bits,8,32)','%d'))');
+    end
+end
