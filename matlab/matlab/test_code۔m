@@ -1,0 +1,7 @@
+img = rgb2gray(imread('box.png'));
+corners = myFAST(img, 20, 12);      % tumhara FAST
+desc = myDescriptor(img, corners);  % 256 bits code
+
+% Baad mein jab robot ghoome
+% old_descs = {desc1, desc2, desc3...}
+% myLoopClosure(desc_new, old_descs)
