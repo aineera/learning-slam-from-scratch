@@ -1,0 +1,21 @@
+function isLoop = myLoopClosure(desc_new, desc_old_list)
+    % desc_new: nayi tasveer ke descriptors
+    % desc_old_list: purani tasveeron ke descriptors ka cell array
+    
+    % Asaan BoW: saare descriptors ko 100 groups mein k-means (vocabulary)
+    allDesc = double(cell2mat(desc_old_list));
+    [~, vocab] = kmeans(allDesc, 100); % 100 lafz
+    
+    % Har tasveer ko histogram banao
+    hist_new = histcounts(knnsearch(vocab, double(desc_new)), 100);
+    
+    isLoop = false;
+    for i = 1:length(desc_old_list)
+        hist_old = histcounts(knnsearch(vocab, double(desc_old_list{i})), 100);
+        score = dot(hist_new, hist_old) / (norm(hist_new)*norm(hist_old)+1e-6);
+        if score > 0.85
+            fprintf('Loop mil gaya! Image %d se match %.2f\n', i, score);
+            isLoop = true; return;
+        end
+    end
+end
